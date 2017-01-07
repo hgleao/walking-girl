@@ -1,0 +1,93 @@
+{"frames": {
+
+"girlidle.png":
+{
+	"frame": {"x":748,"y":0,"w":379,"h":909},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":379,"h":909},
+	"sourceSize": {"w":379,"h":909},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"girlwalking0.png":
+{
+	"frame": {"x":370,"y":0,"w":378,"h":891},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":378,"h":891},
+	"sourceSize": {"w":378,"h":891},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"girlwalking1.png":
+{
+	"frame": {"x":787,"y":909,"w":410,"h":898},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":410,"h":898},
+	"sourceSize": {"w":410,"h":898},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"girlwalking2.png":
+{
+	"frame": {"x":1197,"y":909,"w":517,"h":876},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":517,"h":876},
+	"sourceSize": {"w":517,"h":876},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"girlwalking3.png":
+{
+	"frame": {"x":0,"y":909,"w":391,"h":872},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":391,"h":872},
+	"sourceSize": {"w":391,"h":872},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"girlwalking4.png":
+{
+	"frame": {"x":0,"y":0,"w":370,"h":884},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":370,"h":884},
+	"sourceSize": {"w":370,"h":884},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"girlwalking5.png":
+{
+	"frame": {"x":1510,"y":0,"w":389,"h":890},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":890},
+	"sourceSize": {"w":389,"h":890},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"girlwalking6.png":
+{
+	"frame": {"x":391,"y":909,"w":396,"h":883},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":396,"h":883},
+	"sourceSize": {"w":396,"h":883},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"girlwalking7.png":
+{
+	"frame": {"x":1127,"y":0,"w":383,"h":887},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":383,"h":887},
+	"sourceSize": {"w":383,"h":887},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "girl.png",
+	"format": "RGBA8888",
+	"size": {"w":1899,"h":1807},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:624ddb1af8660ba574a36992d9011ea4:c8a7160b26a64b9f1473d655ffa84047:165fda0d1be138e47f78fe530c9a9f92$"
+}
+}

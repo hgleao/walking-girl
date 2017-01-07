@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Walking Girl</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<script src="pixi.js-master/pixi.js"></script>
+	<script>
+		//Create the stage
+		var stage = new PIXI.Container();
+		//Auto detect which renderer to use
+		renderer = PIXI.autoDetectRenderer(1000, 1500);
+		//CSS Styling added to the renderer
+		renderer.view.style.position = "absolute";
+		renderer.view.style.display = "block";
+		renderer.view.style.zIndex = -1;
+		renderer.autoResize = true;
+
+		//Scale variables to resize the sprites
+		var scale = window.innerHeight*0.001;
+		var negativeScale = scale * (-1);
+
+		//Event listener that will be on the lookout for a window resize so that the renderer can be resized as well
+		window.addEventListener('resize', resizeRenderer, false);
+
+		//Function that resizes the renderer to be whole window
+		function resizeRenderer() {
+			renderer.resize(window.innerWidth, window.innerHeight);
+			//Recalculate de scales for the spirtes
+			scale = window.innerHeight*0.001;
+			negativeScale = scale * (-1);
+
+		}
+
+		//Add renderer canvas to HTML DOM
+		document.body.appendChild(renderer.view);
+
+		//Function that listens and captures keyboard events (taken from https://github.com/kittykatattack/learningPixi#keyboard)
+		function keyboard(keyCode) {
+			var key = {};
+			key.code = keyCode;
+			key.isDown = false;
+			key.isUp = true;
+			key.press = undefined;
+			key.release = undefined;
+			//The `downHandler`
+			key.downHandler = function(event) {
+				if (event.keyCode === key.code) {
+					if (key.isUp && key.press) key.press();
+					key.isDown = true;
+					key.isUp = false;
+				}
+				event.preventDefault();
+			};
+			//The `upHandler`
+			key.upHandler = function(event) {
+				if (event.keyCode === key.code) {
+					if (key.isDown && key.release) key.release();
+					key.isDown = false;
+					key.isUp = true;
+				}
+				event.preventDefault();
+			};
+			//Attach event listeners
+			window.addEventListener(
+				"keydown", key.downHandler.bind(key), false
+				);
+			window.addEventListener(
+				"keyup", key.upHandler.bind(key), false
+				);
+			return key;
+		}
+
+		//Capture the keyboard arrow keys
+		var left = keyboard(37),
+		right = keyboard(39);
+
+		//Load the spritesheet from HASH JSON File
+		//Girl spritesheet comes from freepik (http://www.freepik.com/index.php?goto=74&idfoto=996569)
+		PIXI.loader
+		.add('resources/girl.json')
+		.load(onAssetsLoaded);
+
+		function onAssetsLoaded() {
+			//Array that will store the idle frames
+			var girlIdleFrames = [];
+			//Array that will store the walking frames
+			var girlWalkingFrames = [];
+			//Add the idle frame from the spritesheet into the idle array
+			girlIdleFrames.push(PIXI.Texture.fromFrame('girlidle.png'));
+			//Add the walking frames from the sritesheet into the walking array
+			for (var i = 0; i < 7; i++) {
+				girlWalkingFrames.push(PIXI.Texture.fromFrame('girlwalking' + i + '.png'));
+			}
+			//Left arrow pressed
+			left.press = function() {
+				stage.removeChild(girlWalkingAnimation);
+				girlWalkingController(girlWalkingFrames,negativeScale,scale);
+			};
+			//Left arrow released
+			left.release = function() {
+				stage.removeChild(girlWalkingAnimation);
+				girlWalkingController(girlIdleFrames,negativeScale,scale);
+			};
+			//Right arrow pressed
+			right.press = function() {
+				stage.removeChild(girlWalkingAnimation);
+				girlWalkingController(girlWalkingFrames,scale,scale);
+			};
+			//Right arrow pressed
+			right.release = function() {
+				stage.removeChild(girlWalkingAnimation);
+				girlWalkingController(girlIdleFrames,scale,scale);
+			};
+			//Function that will create the girl animation sprite
+			function girlWalkingController(girlFrames,xScale,yScale) {
+				//Create the walking animation sprite
+				girlWalkingAnimation = new PIXI.extras.AnimatedSprite(girlFrames);
+				girlWalkingAnimation.pivot.set(190,870);
+				girlWalkingAnimation.position.set(window.innerWidth/2,window.innerHeight*0.95);
+				girlWalkingAnimation.animationSpeed = 0.27;
+				girlWalkingAnimation.scale.y = yScale;
+				girlWalkingAnimation.scale.x = xScale;
+				girlWalkingAnimation.play();
+				stage.addChild(girlWalkingAnimation);
+			}
+			girlWalkingController(girlIdleFrames,scale,scale);
+		}
+
+		function start() {
+			//Render the stage container
+			renderer.render(stage);
+			//Call the start() function when the stage’s contents can be redrawn
+			requestAnimationFrame(start);
+		}
+
+		//Initialization
+		resizeRenderer();
+		start();
+		</script>
+		<div class="center">
+			<p class="text">Press the right of left arrow keys to make the girl walk!</p>
+		</div>
+	</body>
+	</html>
