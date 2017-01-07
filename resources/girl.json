@@ -84,7 +84,7 @@
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "girl.png",
+	"image": "https://github.com/hgleao/walking-girl/blob/a7f26d57307c26a98fed3d32459e64100ea1a715/resources/girl.png?raw=true",
 	"format": "RGBA8888",
 	"size": {"w":1899,"h":1807},
 	"scale": "1",
